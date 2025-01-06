@@ -1,43 +1,12 @@
-// import React from "react";
-// import axios from "axios";
-
-// const TaskItem = ({ task, refreshTasks }) => {
-//   const toggleTaskStatus = async () => {
-//     await axios.put(`http://localhost:5000/api/tasks/${task.id}`, {
-//       done: !task.done,
-//     });
-//     refreshTasks();
-//   };
-
-//   return (
-//     <li>
-//       <span style={{ textDecoration: task.done ? "line-through" : "none" }}>
-//         {task.name}
-//       </span>
-//       <button onClick={toggleTaskStatus}>
-//         {task.done ? "Mark as Not Done" : "Mark as Done"}
-//       </button>
-//     </li>
-//   );
-// };
-
-// export default TaskItem;
-
 import React from "react";
-import axios from "axios";
 
-const TaskItem = ({ task, refreshTasks }) => {
-  const handleStatusChange = async () => {
-    try {
-      const updatedTask = { ...task, done: !task.done };
-      await axios.put(
-        `http://localhost:5000/api/tasks/${task.id}`,
-        updatedTask
-      );
-      refreshTasks();
-    } catch (error) {
-      console.error("Error updating task:", error);
-    }
+const TaskItem = ({ task, onToggleStatus, onDelete }) => {
+  const handleToggleStatus = () => {
+    onToggleStatus(task.id, task.done); // Call toggle status function from parent
+  };
+
+  const handleDelete = () => {
+    onDelete(task.id); // Call delete function from parent
   };
 
   return (
@@ -48,12 +17,17 @@ const TaskItem = ({ task, refreshTasks }) => {
       >
         {task.name}
       </span>
-      <button
-        onClick={handleStatusChange}
-        className={`btn ${task.done ? "btn-success" : "btn-warning"}`}
-      >
-        {task.done ? "Undo" : "Complete"}
-      </button>
+      <div>
+        <button
+          onClick={handleToggleStatus}
+          className={`btn ${task.done ? "btn-success" : "btn-warning"}`}
+        >
+          {task.done ? "Undo" : "Complete"}
+        </button>
+        <button onClick={handleDelete} className="btn btn-danger ml-2">
+          Delete
+        </button>
+      </div>
     </li>
   );
 };

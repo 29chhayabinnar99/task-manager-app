@@ -1,3 +1,25 @@
+/* Add this style to position the navigation at the top right */
+.navbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #fc5c7d; /* Change color on hover */
+}
+
+/* Keep the rest of your previous styles */
 body {
   background: linear-gradient(135deg, #6a82fb, #fc5c7d);
   font-family: cursive;
@@ -27,15 +49,13 @@ body {
   background-color: #9b6767;
 }
 
-/* Task name styles */
 .task-name {
-  color: white;
+  color: rgb(9, 9, 9);
   font-size: 14px;
   font-weight: 500;
   transition: text-decoration 0.3s ease;
 }
 
-/* Button styling */
 button {
   font-size: 14px;
   padding: 8px 15px;
@@ -51,7 +71,6 @@ button:hover {
   background-color: #fc5c7d;
 }
 
-/* Task name adjustment */
 .task-name {
   font-size: 18px;
   font-weight: 500;
@@ -62,7 +81,8 @@ button {
   padding: 5px 10px;
 }
 
-ol, ul {
+ol,
+ul {
   padding-left: 0.51rem;
 }
 
@@ -70,11 +90,54 @@ input {
   font-size: 16px;
 }
 
-h1{
+h1 {
   text-align: center;
   color: white;
 }
-.outer-container{
+
+.outer-container {
   font-weight: bold;
   font-size: 60px;
 }
+
+/* Position the Go to Add Task button at the bottom-left of the container */
+.go-to-add-task-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #6a82fb;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.go-to-add-task-btn:hover {
+  background-color: #fc5c7d; /* Change color on hover */
+}
+
+/* Keep the other styles as they are */
+.navbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #fc5c7d; /* Change color on hover */
+}
+

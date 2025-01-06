@@ -61,6 +61,12 @@ app.get("/api/tasks", (req, res) => {
   res.json(tasks);
 });
 
+app.delete("/api/tasks/:id", (req, res) => {
+  const { id } = req.params;
+  tasks = tasks.filter((task) => task.id !== parseInt(id)); // Delete task by ID
+  res.status(204).send(); // No content response
+});
+
 // API to add a task
 app.post("/api/tasks", (req, res) => {
   const task = req.body;
